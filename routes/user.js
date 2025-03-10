@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const 
 
 userRouter.post('/signup', async function(req, res){
-    const { email, password, firstName, lastname} = req.body;
+    const { email, password, firstname, lastname} = req.body;
 
     //todo: hash the password before storing in db 
     // todo: try catch for error catching 
@@ -22,7 +22,7 @@ userRouter.post('/signup', async function(req, res){
 
 })
 
-userRouter.post('/signup', async function (req,res){
+userRouter.post('/signin', async function (req,res){
 
 
     const { email, password} = req.body ; 
@@ -51,12 +51,12 @@ userRouter.post('/signup', async function (req,res){
 })
 
 
-userRouter.get("/get",userMiddleware, async function (req,res){
+userRouter.get("/getcourses",userMiddleware, async function (req,res){
     
     const userId  = req.userId;
 
     const purchases = await purchaseModel.find({
-        
+
     })
 
 })
