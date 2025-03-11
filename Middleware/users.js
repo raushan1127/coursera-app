@@ -1,5 +1,5 @@
 const jwt = require ("jsonwebtoken")
-const JWT_USER_SECRET = "randomraushanusersecret"
+const { JWT_USER_SECRET } = require ("../config")
 
 
 function usermiddleware(req, res, next){
@@ -17,6 +17,6 @@ function usermiddleware(req, res, next){
   }
 
 }
-module.exports {
-    usermiddleware: usermiddleware
+module.exports = {
+     usermiddleware: usermiddleware
 }
