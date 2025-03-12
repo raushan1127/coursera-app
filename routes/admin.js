@@ -84,6 +84,25 @@ adminRouter.put("/course", adminMiddleware, async function (req, res){
     })
 })
 
+adminRouter.post("/courses", adminMiddleware, async function (req, res){
+    const adminId = req.adminId
+     
+    const { title, description, imageUrl, price} = req.body 
+
+    const courses = await courseModel.create({
+        title: title,
+        description: description,
+        imageUrl: imageUrl,
+        price: price,
+        creatorId: adminId
+    })
+    req.json({
+        message: "course created",
+        courseId : courses._id
+    })
+})
+
+
 adminRouter.get("/course/bulk", adminMiddleware,async function(req, res) {
     const adminId = req.adminId;
 
